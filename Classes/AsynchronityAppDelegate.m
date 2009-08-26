@@ -7,34 +7,16 @@
 //
 
 #import "AsynchronityAppDelegate.h"
+#import "AuthenticationController.h"
 #import "RootViewController.h"
 
 
 @implementation AsynchronityAppDelegate
 
-@synthesize window;
-@synthesize navigationController;
-
-
-#pragma mark -
-#pragma mark Application lifecycle
-
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
-    // Override point for customization after app launch    
-	
-	[window addSubview:[navigationController view]];
-    [window makeKeyAndVisible];
+    [window addSubview:navigationController.view];
+	[self authenticate];
 }
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-	// Save data if appropriate
-}
-
-
-#pragma mark -
-#pragma mark Memory management
 
 - (void)dealloc {
 	[navigationController release];
@@ -42,6 +24,15 @@
 	[super dealloc];
 }
 
+- (void)authenticate {
+	authController = [[AuthenticationController alloc] initWithTarget:self andSelector:@selector(authenticationSucceeded:) andViewController:navigationController];
+	[authController authenticate];
+}
+
+- (void)authenticationSucceeded:(BOOL)success {
+	NSLog(@"Authentication succeeded: %@!", success ? @"YES" : @"NO");
+	[authController release];
+}
 
 @end
 

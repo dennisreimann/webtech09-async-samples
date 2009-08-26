@@ -55,10 +55,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* AsynchronityAppDelegate.h */,
 				1D3623250D0F684500981E51 /* AsynchronityAppDelegate.m */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				6F03D30110446DC700BEA64E /* AuthenticationController.h */,
 				6F03D30210446DC700BEA64E /* AuthenticationController.m */,
 			);

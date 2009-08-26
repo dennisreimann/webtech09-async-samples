@@ -9,17 +9,30 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AuthenticationController : UIViewController <UITextFieldDelegate> {
+#define kUsernameDefaultsKey @"username"
+#define kPasswordDefaultsKey @"password"
+
+
+@interface AuthenticationController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate> {
   @private
 	id target;
 	SEL selector;
-	IBOutlet UITextField *loginField;
-	IBOutlet UITextField *tokenField;
+	UIViewController *viewController;
+	UIActionSheet *authSheet;
+	NSString *username;
+	NSString *password;
+	IBOutlet UITextField *usernameField;
+	IBOutlet UITextField *passwordField;
 	IBOutlet UIButton *submitButton;
+	IBOutlet UIButton *cancelButton;
 }
 
-- (id)initWithTarget:(id)theTarget andSelector:(SEL)theSelector;
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *password;
+
+- (id)initWithTarget:(id)theTarget andSelector:(SEL)theSelector andViewController:(UIViewController *)viewController;
+- (void)authenticate;
 - (IBAction)submit:(id)sender;
-- (void)failWithMessage:(NSString *)theMessage;
+- (IBAction)cancel:(id)sender;
 
 @end
