@@ -1,11 +1,3 @@
-//
-//  AuthenticationController.m
-//  Asynchronity
-//
-//  Created by Dennis Blöte on 25.08.09.
-//  Copyright 2009 Dennis Blöte. All rights reserved.
-//
-
 #import "AuthenticationController.h"
 
 
@@ -53,50 +45,25 @@
 }
 
 - (void)authenticate {
-	NSLog(@"Authenticating with username '%@' and password '%@'", username, password);
 	if (username.length > 0 && password.length > 0) {
-		submitButton.enabled = NO;
-		[self dismissKeyboard];
 		[self startAuthentication];
 	} else {
-		[self presentLogin];
 		[self failWithMessage:@"Please enter your username and password"];
 	}
 }
 
 - (void)startAuthentication {
-	NSLog(@"Starting authenticatiion");
+	[self dismissKeyboard];
 	[self showAuthenticationSheet];
 	NSURL *url = [NSURL URLWithString:@"http://twitter.com/account/verify_credentials.xml"];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[NSURLConnection connectionWithRequest:request delegate:self];
 }
 
-#pragma mark -
-#pragma mark NSURLConnection delegation methods
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-	if ([challenge previousFailureCount] == 0) {
-		NSURLCredential *credential = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceForSession];
-		[challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
-		[credential release];
-	} else {
-		[challenge.sender cancelAuthenticationChallenge:challenge];
-	}
-}
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-	[self finishAuthenticationWithSuccess:YES];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-	[self failWithMessage:@"Please ensure that you are connected to the internet and that your username and password are correct"];
-}
-
 - (void)failWithMessage:(NSString *)theMessage {
 	[self dismissAuthenticationSheet];
 	[self presentLogin];
 	[usernameField becomeFirstResponder];
-	submitButton.enabled = YES;
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
@@ -110,8 +77,7 @@
 }
 
 - (void)finishAuthenticationWithSuccess:(BOOL)success {
-	if (success) {
-		// save credentials
+	if (success) { // save credentials
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 		[defaults setValue:username forKey:kUsernameDefaultsKey];
 		[defaults setValue:password forKey:kPasswordDefaultsKey];
@@ -147,6 +113,25 @@
 
 - (IBAction)cancel:(id)sender {
 	[self finishAuthenticationWithSuccess:NO];
+}
+
+#pragma mark NSURLConnection delegation methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	if ([challenge previousFailureCount] == 0) {
+		NSURLCredential *credential = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceForSession];
+		[challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+		[credential release];
+	} else {
+		[challenge.sender cancelAuthenticationChallenge:challenge];
+	}
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	[self finishAuthenticationWithSuccess:YES];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	[self failWithMessage:@"Please ensure that you are connected to the internet and that your username and password are correct"];
 }
 
 #pragma mark Keyboard

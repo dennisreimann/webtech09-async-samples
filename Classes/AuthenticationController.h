@@ -1,17 +1,8 @@
-//
-//  AuthenticationController.h
-//  Asynchronity
-//
-//  Created by Dennis Blöte on 25.08.09.
-//  Copyright 2009 Dennis Blöte. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 
 #define kUsernameDefaultsKey @"username"
 #define kPasswordDefaultsKey @"password"
-
 
 @interface AuthenticationController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate> {
   @private
