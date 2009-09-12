@@ -12,11 +12,20 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
-		6F03D30410446DC700BEA64E /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F03D30210446DC700BEA64E /* AuthenticationController.m */; };
-		6F03D31D10446E7F00BEA64E /* Authentication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F03D31A10446E7F00BEA64E /* Authentication.xib */; };
 		6F03D31E10446E7F00BEA64E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F03D31B10446E7F00BEA64E /* MainWindow.xib */; };
-		6F03D31F10446E7F00BEA64E /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F03D31C10446E7F00BEA64E /* RootViewController.xib */; };
+		6FDB5D2F105C1B670062D4E3 /* TweetsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5D2E105C1B670062D4E3 /* TweetsController.m */; };
+		6FDB5D33105C1BA00062D4E3 /* Tweets.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB5D32105C1BA00062D4E3 /* Tweets.xib */; };
+		6FDB5DCE105C286B0062D4E3 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DBF105C286B0062D4E3 /* CDataScanner.m */; };
+		6FDB5DCF105C286B0062D4E3 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DC2105C286B0062D4E3 /* CDataScanner_Extensions.m */; };
+		6FDB5DD0105C286B0062D4E3 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DC4105C286B0062D4E3 /* NSCharacterSet_Extensions.m */; };
+		6FDB5DD1105C286B0062D4E3 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DC6105C286B0062D4E3 /* NSDictionary_JSONExtensions.m */; };
+		6FDB5DD2105C286B0062D4E3 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DC9105C286B0062D4E3 /* CJSONDeserializer.m */; };
+		6FDB5DD3105C286B0062D4E3 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DCB105C286B0062D4E3 /* CJSONScanner.m */; };
+		6FDB5DD4105C286B0062D4E3 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5DCD105C286B0062D4E3 /* CJSONSerializer.m */; };
+		6FDB5E14105C2CB30062D4E3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDB5E13105C2CB30062D4E3 /* CFNetwork.framework */; };
+		6FDB5E16105C2CC20062D4E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDB5E15105C2CC20062D4E3 /* SystemConfiguration.framework */; };
+		6FDB5E18105C2CD30062D4E3 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDB5E17105C2CD30062D4E3 /* libz.1.2.3.dylib */; };
+		6FDB5EAE105C334B0062D4E3 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5EAD105C334B0062D4E3 /* Tweet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,14 +36,30 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* Asynchronity_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asynchronity_Prefix.pch; sourceTree = "<group>"; };
-		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6F03D30110446DC700BEA64E /* AuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationController.h; sourceTree = "<group>"; };
-		6F03D30210446DC700BEA64E /* AuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationController.m; sourceTree = "<group>"; };
-		6F03D31A10446E7F00BEA64E /* Authentication.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Authentication.xib; path = IBFiles/Authentication.xib; sourceTree = "<group>"; };
 		6F03D31B10446E7F00BEA64E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = IBFiles/MainWindow.xib; sourceTree = "<group>"; };
-		6F03D31C10446E7F00BEA64E /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = IBFiles/RootViewController.xib; sourceTree = "<group>"; };
+		6FDB5D2D105C1B670062D4E3 /* TweetsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsController.h; sourceTree = "<group>"; };
+		6FDB5D2E105C1B670062D4E3 /* TweetsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsController.m; sourceTree = "<group>"; };
+		6FDB5D32105C1BA00062D4E3 /* Tweets.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Tweets.xib; path = IBFiles/Tweets.xib; sourceTree = "<group>"; };
+		6FDB5DBE105C286B0062D4E3 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		6FDB5DBF105C286B0062D4E3 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		6FDB5DC1105C286B0062D4E3 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		6FDB5DC2105C286B0062D4E3 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		6FDB5DC3105C286B0062D4E3 /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
+		6FDB5DC4105C286B0062D4E3 /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_Extensions.m; sourceTree = "<group>"; };
+		6FDB5DC5105C286B0062D4E3 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		6FDB5DC6105C286B0062D4E3 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		6FDB5DC8105C286B0062D4E3 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		6FDB5DC9105C286B0062D4E3 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		6FDB5DCA105C286B0062D4E3 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		6FDB5DCB105C286B0062D4E3 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		6FDB5DCC105C286B0062D4E3 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		6FDB5DCD105C286B0062D4E3 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		6FDB5E13105C2CB30062D4E3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6FDB5E15105C2CC20062D4E3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6FDB5E17105C2CD30062D4E3 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		6FDB5EAC105C334B0062D4E3 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		6FDB5EAD105C334B0062D4E3 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Asynchronity-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Asynchronity-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +71,9 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				6FDB5E14105C2CB30062D4E3 /* CFNetwork.framework in Frameworks */,
+				6FDB5E16105C2CC20062D4E3 /* SystemConfiguration.framework in Frameworks */,
+				6FDB5E18105C2CD30062D4E3 /* libz.1.2.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,12 +83,13 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6FDB5DBD105C286B0062D4E3 /* TouchJSON */,
 				1D3623240D0F684500981E51 /* AsynchronityAppDelegate.h */,
 				1D3623250D0F684500981E51 /* AsynchronityAppDelegate.m */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				6F03D30110446DC700BEA64E /* AuthenticationController.h */,
-				6F03D30210446DC700BEA64E /* AuthenticationController.m */,
+				6FDB5D2D105C1B670062D4E3 /* TweetsController.h */,
+				6FDB5D2E105C1B670062D4E3 /* TweetsController.m */,
+				6FDB5EAC105C334B0062D4E3 /* Tweet.h */,
+				6FDB5EAD105C334B0062D4E3 /* Tweet.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -98,8 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				6F03D31B10446E7F00BEA64E /* MainWindow.xib */,
-				6F03D31C10446E7F00BEA64E /* RootViewController.xib */,
-				6F03D31A10446E7F00BEA64E /* Authentication.xib */,
+				6FDB5D32105C1BA00062D4E3 /* Tweets.xib */,
 				8D1107310486CEB800E47090 /* Asynchronity-Info.plist */,
 			);
 			name = Resources;
@@ -111,8 +139,48 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				6FDB5E13105C2CB30062D4E3 /* CFNetwork.framework */,
+				6FDB5E15105C2CC20062D4E3 /* SystemConfiguration.framework */,
+				6FDB5E17105C2CD30062D4E3 /* libz.1.2.3.dylib */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FDB5DBD105C286B0062D4E3 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB5DC0105C286B0062D4E3 /* Extensions */,
+				6FDB5DC7105C286B0062D4E3 /* JSON */,
+				6FDB5DBE105C286B0062D4E3 /* CDataScanner.h */,
+				6FDB5DBF105C286B0062D4E3 /* CDataScanner.m */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		6FDB5DC0105C286B0062D4E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB5DC1105C286B0062D4E3 /* CDataScanner_Extensions.h */,
+				6FDB5DC2105C286B0062D4E3 /* CDataScanner_Extensions.m */,
+				6FDB5DC3105C286B0062D4E3 /* NSCharacterSet_Extensions.h */,
+				6FDB5DC4105C286B0062D4E3 /* NSCharacterSet_Extensions.m */,
+				6FDB5DC5105C286B0062D4E3 /* NSDictionary_JSONExtensions.h */,
+				6FDB5DC6105C286B0062D4E3 /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6FDB5DC7105C286B0062D4E3 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB5DC8105C286B0062D4E3 /* CJSONDeserializer.h */,
+				6FDB5DC9105C286B0062D4E3 /* CJSONDeserializer.m */,
+				6FDB5DCA105C286B0062D4E3 /* CJSONScanner.h */,
+				6FDB5DCB105C286B0062D4E3 /* CJSONScanner.m */,
+				6FDB5DCC105C286B0062D4E3 /* CJSONSerializer.h */,
+				6FDB5DCD105C286B0062D4E3 /* CJSONSerializer.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,9 +232,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F03D31D10446E7F00BEA64E /* Authentication.xib in Resources */,
 				6F03D31E10446E7F00BEA64E /* MainWindow.xib in Resources */,
-				6F03D31F10446E7F00BEA64E /* RootViewController.xib in Resources */,
+				6FDB5D33105C1BA00062D4E3 /* Tweets.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,8 +246,15 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AsynchronityAppDelegate.m in Sources */,
-				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
-				6F03D30410446DC700BEA64E /* AuthenticationController.m in Sources */,
+				6FDB5D2F105C1B670062D4E3 /* TweetsController.m in Sources */,
+				6FDB5DCE105C286B0062D4E3 /* CDataScanner.m in Sources */,
+				6FDB5DCF105C286B0062D4E3 /* CDataScanner_Extensions.m in Sources */,
+				6FDB5DD0105C286B0062D4E3 /* NSCharacterSet_Extensions.m in Sources */,
+				6FDB5DD1105C286B0062D4E3 /* NSDictionary_JSONExtensions.m in Sources */,
+				6FDB5DD2105C286B0062D4E3 /* CJSONDeserializer.m in Sources */,
+				6FDB5DD3105C286B0062D4E3 /* CJSONScanner.m in Sources */,
+				6FDB5DD4105C286B0062D4E3 /* CJSONSerializer.m in Sources */,
+				6FDB5EAE105C334B0062D4E3 /* Tweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

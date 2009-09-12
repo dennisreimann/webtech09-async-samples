@@ -1,13 +1,7 @@
-@class AuthenticationController;
-
 @interface AsynchronityAppDelegate : NSObject <UIApplicationDelegate> {
   @private
-    UIWindow *window;
-    UINavigationController *navigationController;
-	AuthenticationController *authController;
+    IBOutlet UIWindow *window;
+    IBOutlet UINavigationController *navigationController;
 }
-
-- (void)authenticate;
-- (void)authenticationSucceeded:(BOOL)success;
 
 @end
