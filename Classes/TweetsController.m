@@ -7,7 +7,9 @@
 - (id)tweetsFromJSONData:(NSData *)theData;
 - (void)loadedTweets:(id)theResult;
 - (void)parseTweetsSynchronously;
+- (void)parseTweetsWithCallback;
 - (void)parseTweetsInBackgroundThread;
+- (void)parseTweetsWithOperationQueue;
 @end
 
 
@@ -36,11 +38,32 @@
 	//[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
 }
 
+- (void)loadedTweets:(id)theResult {
+	self.isLoading = NO;
+	if ([theResult isKindOfClass:[NSError class]]) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:[(NSError *)theResult localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	} else {
+		self.tweets = theResult;
+		[self.tableView reloadData];
+	}
+}
+
+#pragma mark Various methods for parsing tweets
+
+// This methods loads tweets in a synchronous manner.
+// Too bad: Synchronous loading blocks the UI... 
 - (void)parseTweetsSynchronously {   
 	NSURL *url = [NSURL URLWithString:@"http://twitter.com/statuses/public_timeline.json"];
 	NSData *data = [NSData dataWithContentsOfURL:url];
     id result = [self tweetsFromJSONData:data];
 	[self loadedTweets:result];
+}
+
+// FIXME: Implement me please
+- (void)parseTweetsWithCallback {
+	
 }
 
 - (void)parseTweetsInBackgroundThread {
@@ -52,16 +75,9 @@
     [pool release];
 }
 
-- (void)loadedTweets:(id)theResult {
-	self.isLoading = NO;
-	if ([theResult isKindOfClass:[NSError class]]) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:[(NSError *)theResult localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	} else {
-		self.tweets = theResult;
-		[self.tableView reloadData];
-	}
+// FIXME: Implement me please
+- (void)parseTweetsWithOperationQueue {
+
 }
 
 #pragma mark TableView
@@ -99,7 +115,6 @@
 	} else {
 		self.navigationItem.rightBarButtonItem = refreshItem;
 	}
-	
 }
 
 - (id)tweetsFromJSONData:(NSData *)theData {
