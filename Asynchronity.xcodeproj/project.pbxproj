@@ -26,6 +26,10 @@
 		6FDB5E16105C2CC20062D4E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDB5E15105C2CC20062D4E3 /* SystemConfiguration.framework */; };
 		6FDB5E18105C2CD30062D4E3 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDB5E17105C2CD30062D4E3 /* libz.1.2.3.dylib */; };
 		6FDB5EAE105C334B0062D4E3 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB5EAD105C334B0062D4E3 /* Tweet.m */; };
+		6FFFC7DB10695F9F00BEC51B /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFFC7D910695F9F00BEC51B /* TweetCell.m */; };
+		6FFFC7FA106963DB00BEC51B /* TweetBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FFFC7F9106963DB00BEC51B /* TweetBackground.png */; };
+		6FFFC7FC106963E600BEC51B /* README in Resources */ = {isa = PBXBuildFile; fileRef = 6FFFC7FB106963E600BEC51B /* README */; };
+		6FFFC88410696CBD00BEC51B /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FFFC88310696CBD00BEC51B /* TweetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,11 @@
 		6FDB5E17105C2CD30062D4E3 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		6FDB5EAC105C334B0062D4E3 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		6FDB5EAD105C334B0062D4E3 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		6FFFC7D810695F9F00BEC51B /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		6FFFC7D910695F9F00BEC51B /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
+		6FFFC7F9106963DB00BEC51B /* TweetBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TweetBackground.png; path = Images/TweetBackground.png; sourceTree = "<group>"; };
+		6FFFC7FB106963E600BEC51B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		6FFFC88310696CBD00BEC51B /* TweetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TweetCell.xib; path = IBFiles/TweetCell.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Asynchronity-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Asynchronity-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,12 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				6FDB5DBD105C286B0062D4E3 /* TouchJSON */,
-				1D3623240D0F684500981E51 /* AsynchronityAppDelegate.h */,
-				1D3623250D0F684500981E51 /* AsynchronityAppDelegate.m */,
-				6FDB5D2D105C1B670062D4E3 /* TweetsController.h */,
-				6FDB5D2E105C1B670062D4E3 /* TweetsController.m */,
-				6FDB5EAC105C334B0062D4E3 /* Tweet.h */,
-				6FDB5EAD105C334B0062D4E3 /* Tweet.m */,
+				6FFFC7E010695FC000BEC51B /* Model */,
+				6FFFC7E210695FDB00BEC51B /* Controller */,
+				6FFFC7E110695FCF00BEC51B /* View */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -126,9 +132,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6F03D31B10446E7F00BEA64E /* MainWindow.xib */,
-				6FDB5D32105C1BA00062D4E3 /* Tweets.xib */,
+				6FFFC86210696C4300BEC51B /* IBFiles */,
+				6FFFC7F8106963D000BEC51B /* Images */,
 				8D1107310486CEB800E47090 /* Asynchronity-Info.plist */,
+				6FFFC7FB106963E600BEC51B /* README */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -183,6 +190,53 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		6FFFC7E010695FC000BEC51B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB5EAC105C334B0062D4E3 /* Tweet.h */,
+				6FDB5EAD105C334B0062D4E3 /* Tweet.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6FFFC7E110695FCF00BEC51B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6FFFC7D810695F9F00BEC51B /* TweetCell.h */,
+				6FFFC7D910695F9F00BEC51B /* TweetCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6FFFC7E210695FDB00BEC51B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* AsynchronityAppDelegate.h */,
+				1D3623250D0F684500981E51 /* AsynchronityAppDelegate.m */,
+				6FDB5D2D105C1B670062D4E3 /* TweetsController.h */,
+				6FDB5D2E105C1B670062D4E3 /* TweetsController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6FFFC7F8106963D000BEC51B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6FFFC7F9106963DB00BEC51B /* TweetBackground.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6FFFC86210696C4300BEC51B /* IBFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6FFFC88310696CBD00BEC51B /* TweetCell.xib */,
+				6F03D31B10446E7F00BEA64E /* MainWindow.xib */,
+				6FDB5D32105C1BA00062D4E3 /* Tweets.xib */,
+			);
+			name = IBFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,6 +288,9 @@
 			files = (
 				6F03D31E10446E7F00BEA64E /* MainWindow.xib in Resources */,
 				6FDB5D33105C1BA00062D4E3 /* Tweets.xib in Resources */,
+				6FFFC7FA106963DB00BEC51B /* TweetBackground.png in Resources */,
+				6FFFC7FC106963E600BEC51B /* README in Resources */,
+				6FFFC88410696CBD00BEC51B /* TweetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +312,7 @@
 				6FDB5DD3105C286B0062D4E3 /* CJSONScanner.m in Sources */,
 				6FDB5DD4105C286B0062D4E3 /* CJSONSerializer.m in Sources */,
 				6FDB5EAE105C334B0062D4E3 /* Tweet.m in Sources */,
+				6FFFC7DB10695F9F00BEC51B /* TweetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

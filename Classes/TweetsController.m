@@ -1,6 +1,7 @@
 #import "TweetsController.h"
 #import "CJSONDeserializer.h"
 #import "Tweet.h"
+#import "TweetCell.h"
 
 
 @interface TweetsController ()
@@ -25,6 +26,7 @@
 
 - (void)dealloc {
 	[tweets release];
+	[tweetCell release];
 	[refreshItem release];
 	[activityView release];
 	[receivedData release];
@@ -36,9 +38,10 @@
 - (IBAction)loadTweets:(id)sender {
 	if (self.isLoading) return;
 	self.isLoading = YES;
+	
 	//[self parseTweetsSynchronously];
-	[self parseTweetsWithCallback];
-	//[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
+	//[self parseTweetsWithCallback];
+	[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
 }
 
 - (void)loadedTweets:(id)result {
@@ -56,7 +59,9 @@
 #pragma mark Various methods for parsing tweets
 
 // This methods loads tweets in a synchronous manner.
-// Too bad: Synchronous loading blocks the UI... 
+// Too bad: Synchronous loading blocks the UI... this approach fails on app
+// launch, because all we see is a black screen until the tweets are loaded
+// and lazy loading the avatars leads to laggy table view scrolling.
 - (void)parseTweetsSynchronously {
 	NSData *data = [NSData dataWithContentsOfURL:self.connectionURL];
     id result = [self tweetsFromJSONData:data];
@@ -64,14 +69,16 @@
 }
 
 // Here we are using the NSURLConnection delegate methods
-// This approach does not block the UI, but is not suitable 
+// This approach does not block the UI on app launch and reload, but is not
+// suitable either, because lazy loading the avatars still does not work.
 - (void)parseTweetsWithCallback {
 	NSURLRequest *request = [NSURLRequest requestWithURL:self.connectionURL];
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	if (connection) receivedData = [[NSMutableData alloc] init];
 }
 
-// Using a background thread is a good choice for...
+// Using a background thread reduces the amount of code we have to write,
+// because we do not have to implement the callback methods.
 // Important: You need to define an autorelease pool for the spawned thread
 // and be sure to perform the result handler back on the main thread!
 - (void)parseTweetsInBackgroundThread {
@@ -127,22 +134,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	static NSString *CellIdentifier = @"Cell";
+	TweetCell *cell = (TweetCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-    }
+		[[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
+		cell = tweetCell;
+	}
 	Tweet *tweet = [tweets objectAtIndex:indexPath.row];
-	cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-	cell.textLabel.text = tweet.text;
-	cell.imageView.image = tweet.avatar;
+	cell.tweet = tweet;
     return cell;
 }
 
 #pragma mark Helpers
 
 - (NSURL *)connectionURL {
-	return [NSURL URLWithString:@"http://twitter.com/statuses/public_timeline.json"];
+	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=50"];
 }
 	
 - (void)setIsLoading:(BOOL)loading {
@@ -162,7 +168,7 @@
 	NSError *parseError = nil;
 	NSDictionary *tweetsDict = [[CJSONDeserializer deserializer] deserialize:data error:&parseError];
     NSMutableArray *tweetsArray = [NSMutableArray array];
-    for (NSDictionary *tweetDict in tweetsDict) {
+    for (NSDictionary *tweetDict in [tweetsDict valueForKey:@"results"]) {
 		Tweet *tweet = [[Tweet alloc] initWithJSONDictionary:tweetDict];
 		[tweetsArray addObject:tweet];
     }
