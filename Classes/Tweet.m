@@ -1,14 +1,17 @@
 #import "Tweet.h"
+#import "LoadAvatarOperation.h"
+#import "AsynchronityAppDelegate.h"
 
 
 @interface Tweet ()
 - (void)loadAvatarInBackgroundThread;
+- (void)loadAvatarInOperationQueue;
 @end
 
 
 @implementation Tweet
 
-@synthesize text, avatar, fromUser;
+@synthesize text, avatar, avatarURL, fromUser;
 
 - (id)initWithJSONDictionary:(NSDictionary *)theDict {
 	[super init];
@@ -29,13 +32,8 @@
 
 - (UIImage *)avatar {
 	if (!avatar) {
-		// Synchronous lazy loading
-//		NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
-//		self.avatar = [UIImage imageWithData:avatarData];
-		// Lazy loading in background thread
 		[self performSelectorInBackground:@selector(loadAvatarInBackgroundThread) withObject:nil];
-		// Lazy loading with operation queue
-//		FIXME: Implement me please
+		// [self loadAvatarInOperationQueue];
 	}
 	return avatar;
 }
@@ -46,6 +44,13 @@
 	UIImage *avatarImage = [UIImage imageWithData:avatarData];
 	[self performSelectorOnMainThread:@selector(setAvatar:) withObject:avatarImage waitUntilDone:YES];
 	[pool release];
+}
+
+- (void)loadAvatarInOperationQueue {
+	LoadAvatarOperation *loadOperation = [[LoadAvatarOperation alloc] initWithTweet:self];
+	NSOperationQueue *queue = [[AsynchronityAppDelegate shared] queue];
+	[queue addOperation:loadOperation];
+	[loadOperation release];
 }
 
 @end
