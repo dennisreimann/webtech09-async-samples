@@ -43,8 +43,8 @@
 	// -------------------------------------------
 	
 	//[self parseTweetsSynchronously];
-	[self parseTweetsWithCallback];
-	//[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
+	//[self parseTweetsWithCallback];
+	[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
 }
 
 - (void)loadedTweets:(id)result {
