@@ -42,8 +42,8 @@
 	// Different approaches for parsing the tweets
 	// -------------------------------------------
 	
-	[self parseTweetsSynchronously];
-	//[self parseTweetsWithCallback];
+	//[self parseTweetsSynchronously];
+	[self parseTweetsWithCallback];
 	//[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
 }
 
