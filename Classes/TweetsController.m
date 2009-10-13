@@ -42,9 +42,9 @@
 	// Different approaches for parsing the tweets
 	// -------------------------------------------
 	
-	//[self parseTweetsSynchronously];
+	[self parseTweetsSynchronously];
 	//[self parseTweetsWithCallback];
-	[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
+	//[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
 }
 
 - (void)loadedTweets:(id)result {
@@ -84,7 +84,7 @@
 #pragma mark Helpers
 
 - (NSURL *)connectionURL {
-	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=50"];
+	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
 }
 
 - (void)setIsLoading:(BOOL)loading {

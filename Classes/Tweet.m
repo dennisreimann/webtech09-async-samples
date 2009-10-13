@@ -30,13 +30,13 @@
 	[super dealloc];
 }
 
-- (UIImage *)avatar {
-	if (!avatar) {
-		[self performSelectorInBackground:@selector(loadAvatarInBackgroundThread) withObject:nil];
-		// [self loadAvatarInOperationQueue];
-	}
-	return avatar;
-}
+//- (UIImage *)avatar {
+//	if (!avatar) {
+//		[self performSelectorInBackground:@selector(loadAvatarInBackgroundThread) withObject:nil];
+//		// [self loadAvatarInOperationQueue];
+//	}
+//	return avatar;
+//}
 
 - (void)loadAvatarInBackgroundThread {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];

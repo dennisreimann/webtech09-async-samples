@@ -17,6 +17,7 @@
 }
 
 - (void)main {
+	if (self.isCancelled) return;
 	NSData *avatarData = [NSData dataWithContentsOfURL:tweet.avatarURL];
 	UIImage *avatarImage = [UIImage imageWithData:avatarData];
 	[tweet performSelectorOnMainThread:@selector(setAvatar:) withObject:avatarImage waitUntilDone:YES];
