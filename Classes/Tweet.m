@@ -38,6 +38,28 @@
 	return avatar;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (void)loadAvatarInBackgroundThread {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
@@ -45,6 +67,28 @@
 	[self performSelectorOnMainThread:@selector(setAvatar:) withObject:avatarImage waitUntilDone:YES];
 	[pool release];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)loadAvatarInOperationQueue {
 	LoadAvatarOperation *loadOperation = [[LoadAvatarOperation alloc] initWithTweet:self];

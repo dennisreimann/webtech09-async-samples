@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.title = @"Tweets";
 	[self loadTweets:nil];
 }
 
@@ -30,33 +31,6 @@
 	[activityView release];
 	[receivedData release];
     [super dealloc];
-}
-
-#pragma mark Actions
-
-- (IBAction)loadTweets:(id)sender {
-	if (self.isLoading) return;
-	self.isLoading = YES;
-	
-	// -------------------------------------------
-	// Different approaches for parsing the tweets
-	// -------------------------------------------
-	
-	//[self parseTweetsSynchronously];
-	//[self parseTweetsWithCallback];
-	[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
-}
-
-- (void)loadedTweets:(id)result {
-	self.isLoading = NO;
-	if ([result isKindOfClass:[NSError class]]) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:[(NSError *)result localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	} else {
-		self.tweets = result;
-		[self.tableView reloadData];
-	}
 }
 
 #pragma mark TableView
@@ -81,25 +55,71 @@
     return cell;
 }
 
-#pragma mark Helpers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark Loading Tweets
 
 - (NSURL *)connectionURL {
 	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
 }
 
+- (IBAction)loadTweets:(id)sender {
+	if (self.isLoading) return;
+	self.isLoading = YES;
+	// -------------------------------------------
+	// Different approaches for parsing the tweets
+	// -------------------------------------------
+	[self parseTweetsSynchronously];
+	//[self parseTweetsWithCallback];
+	//[self performSelectorInBackground:@selector(parseTweetsInBackgroundThread) withObject:nil];
+}
+
+// Toggles the reload button and activity indicator
 - (void)setIsLoading:(BOOL)loading {
 	isLoading = loading;
 	if (isLoading) {
-		// Replace the reload button with an activity indicator
 		UIBarButtonItem *activityItem = [[UIBarButtonItem alloc] initWithCustomView:activityView];
 		self.navigationItem.rightBarButtonItem = activityItem;
 		[activityItem release];
 	} else {
-		// Show the reload button again
 		self.navigationItem.rightBarButtonItem = refreshItem;
 	}
 }
 
+// Displays the tweets or shows an error alert
+- (void)loadedTweets:(id)result {
+	self.isLoading = NO;
+	if (![result isKindOfClass:[NSError class]]) {
+		self.tweets = result;
+		[self.tableView reloadData];
+	} else {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:[(NSError *)result localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
+}
+
+// Converts the JSON response to Tweet objects
 - (id)tweetsFromJSONData:(NSData *)data {
 	NSError *parseError = nil;
 	NSDictionary *tweetsDict = [[CJSONDeserializer deserializer] deserialize:data error:&parseError];
@@ -111,7 +131,29 @@
 	return parseError ? (id)parseError : (id)tweetsArray;
 }
 
-#pragma mark -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma mark 1. Approach: Synchronous approach
 
@@ -125,6 +167,28 @@
 	[self loadedTweets:result];
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #pragma mark 2. Approach: Callback approach
 
 // Here we are using the NSURLConnection delegate methods
@@ -137,10 +201,6 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // this method is called when the server has determined that it
-    // has enough information to create the NSURLResponse
-    // it can be called multiple times, for example in the case of a
-    // redirect, so each time we reset the data.
     [receivedData setLength:0];
 }
 
@@ -163,6 +223,28 @@
 	receivedData = nil;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #pragma mark 3. Approach: Background thread 
 
 // Using a background thread reduces the amount of code we have to write,
@@ -176,5 +258,6 @@
 	[self performSelectorOnMainThread:@selector(loadedTweets:) withObject:result waitUntilDone:YES];
     [pool release];
 }
+
 
 @end
