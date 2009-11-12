@@ -127,6 +127,7 @@
     for (NSDictionary *tweetDict in [tweetsDict valueForKey:@"results"]) {
 		Tweet *tweet = [[Tweet alloc] initWithJSONDictionary:tweetDict];
 		[tweetsArray addObject:tweet];
+		[tweet release];
     }
 	return parseError ? (id)parseError : (id)tweetsArray;
 }
@@ -258,6 +259,22 @@
 	[self performSelectorOnMainThread:@selector(loadedTweets:) withObject:result waitUntilDone:YES];
     [pool release];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end
