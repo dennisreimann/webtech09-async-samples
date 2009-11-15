@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		6F03D31E10446E7F00BEA64E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F03D31B10446E7F00BEA64E /* MainWindow.xib */; };
+		6F2C55CB10B0744700691AF9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C55CA10B0744700691AF9 /* Icon.png */; };
 		6F48A17810B014C400203BDC /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F48A17710B014C400203BDC /* search.json */; };
 		6FA70E0C106A8A8B00D6BAF6 /* TweetBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FA70E0B106A8A8B00D6BAF6 /* TweetBackgroundHighlight.png */; };
 		6FA70E2C106A8D1A00D6BAF6 /* LoadAvatarOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA70E2B106A8D1A00D6BAF6 /* LoadAvatarOperation.m */; };
@@ -45,6 +46,7 @@
 		28A0AAE50D9B0CCF005BE974 /* Asynchronity_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asynchronity_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6F03D31B10446E7F00BEA64E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = IBFiles/MainWindow.xib; sourceTree = "<group>"; };
+		6F2C55CA10B0744700691AF9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
 		6F48A17710B014C400203BDC /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = search.json; path = Data/search.json; sourceTree = "<group>"; };
 		6FA70E0B106A8A8B00D6BAF6 /* TweetBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TweetBackgroundHighlight.png; path = Images/TweetBackgroundHighlight.png; sourceTree = "<group>"; };
 		6FA70E2A106A8D1A00D6BAF6 /* LoadAvatarOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadAvatarOperation.h; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		6FFFC7F8106963D000BEC51B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6F2C55CA10B0744700691AF9 /* Icon.png */,
 				6FFFC7F9106963DB00BEC51B /* TweetBackground.png */,
 				6FA70E0B106A8A8B00D6BAF6 /* TweetBackgroundHighlight.png */,
 			);
@@ -304,6 +307,7 @@
 				6FFFC88410696CBD00BEC51B /* TweetCell.xib in Resources */,
 				6FA70E0C106A8A8B00D6BAF6 /* TweetBackgroundHighlight.png in Resources */,
 				6F48A17810B014C400203BDC /* search.json in Resources */,
+				6F2C55CB10B0744700691AF9 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
