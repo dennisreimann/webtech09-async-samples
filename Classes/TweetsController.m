@@ -27,12 +27,6 @@
 	[self loadTweets:nil];
 }
 
-- (void)viewDidUnload {
-	refreshItem = nil;
-	activityView = nil;
-	tweetCell = nil;
-}
-
 - (void)dealloc {
 	[tweets release];
 	[tweetCell release];
@@ -41,6 +35,28 @@
 	[receivedData release];
     [super dealloc];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma mark TableView
 
@@ -165,6 +181,12 @@
 
 
 
+
+
+
+
+
+
 #pragma mark 1. Approach: Synchronous approach
 
 - (void)parseTweetsSynchronously {
@@ -172,6 +194,12 @@
     id result = [self tweetsFromJSONData:data];
 	[self loadedTweets:result];
 }
+
+
+
+
+
+
 
 
 
@@ -248,6 +276,12 @@
 
 
 
+
+
+
+
+
+
 #pragma mark 3. Approach: Background thread
 
 - (void)parseTweetsInBackgroundThread {
@@ -257,6 +291,12 @@
 	[self performSelectorOnMainThread:@selector(loadedTweets:) withObject:result waitUntilDone:YES];
     [pool release];
 }
+
+
+
+
+
+
 
 
 

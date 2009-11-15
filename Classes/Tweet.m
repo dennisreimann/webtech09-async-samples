@@ -60,6 +60,12 @@
 
 
 
+
+
+
+
+
+
 - (void)loadAvatarInBackgroundThread {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
@@ -90,12 +96,24 @@
 
 
 
+
+
+
+
+
+
 - (void)loadAvatarInOperationQueue {
 	LoadAvatarOperation *loadOperation = [[LoadAvatarOperation alloc] initWithTweet:self];
 	NSOperationQueue *queue = [[AsynchronityAppDelegate shared] queue];
 	[queue addOperation:loadOperation];
 	[loadOperation release];
 }
+
+
+
+
+
+
 
 
 
