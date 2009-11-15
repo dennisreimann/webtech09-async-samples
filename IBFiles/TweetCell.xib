@@ -35,7 +35,7 @@
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
 			</object>
 			<object class="IBUITableViewCell" id="6976551">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -49,7 +49,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{74, 9}, {231, 49}}</string>
 								<reference key="NSSuperview" ref="180891593"/>
-								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -73,7 +72,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{3, 49}, {56, 21}}</string>
 								<reference key="NSSuperview" ref="180891593"/>
-								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -94,7 +92,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{6, 4}, {48, 48}}</string>
 								<reference key="NSSuperview" ref="180891593"/>
-								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<int key="IBUIContentMode">1</int>
@@ -103,7 +100,6 @@
 						</object>
 						<string key="NSFrameSize">{320, 69}</string>
 						<reference key="NSSuperview" ref="6976551"/>
-						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -115,8 +111,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 70}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -124,13 +118,12 @@
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<int key="IBUISeparatorStyle">1</int>
 				<reference key="IBUIContentView" ref="180891593"/>
+				<string key="IBUIReuseIdentifier">TweetCell</string>
 			</object>
 			<object class="IBUIImageView" id="474174378">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{320, 70}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">2</int>
 					<bytes key="NSRGB">MC41NzI1NDkwNDUxIDAuNTk2MDc4NDU1NCAwLjY0NzA1ODg0NDYAA</bytes>

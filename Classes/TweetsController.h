@@ -14,8 +14,6 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *tweets;
-@property (nonatomic, readonly) NSURL *connectionURL;
-@property (nonatomic, readwrite) BOOL isLoading;
 
 - (IBAction)loadTweets:(id)sender;
 

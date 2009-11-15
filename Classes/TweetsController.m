@@ -5,6 +5,9 @@
 
 
 @interface TweetsController ()
+@property (nonatomic, readonly) NSURL *connectionURL;
+@property (nonatomic, readwrite) BOOL isLoading;
+
 - (NSURL *)connectionURL;
 - (id)tweetsFromJSONData:(NSData *)theData;
 - (void)loadedTweets:(id)theResult;
@@ -22,6 +25,12 @@
     [super viewDidLoad];
 	self.title = @"Tweets";
 	[self loadTweets:nil];
+}
+
+- (void)viewDidUnload {
+	refreshItem = nil;
+	activityView = nil;
+	tweetCell = nil;
 }
 
 - (void)dealloc {
@@ -44,7 +53,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *CellIdentifier = @"Cell";
+	static NSString *CellIdentifier = @"TweetCell";
 	TweetCell *cell = (TweetCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
 		[[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
@@ -80,12 +89,12 @@
 #pragma mark Loading Tweets
 
 - (NSURL *)connectionURL {
-	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
+	//return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
 	// -------------------------------------------
 	// Use local data
 	// -------------------------------------------
-	// NSString *filePath = [[NSBundle mainBundle] pathForResource:@"search" ofType:@"json"];
-	// return [NSURL fileURLWithPath:filePath];
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"search" ofType:@"json"];
+	return [NSURL fileURLWithPath:filePath];
 }
 
 - (IBAction)loadTweets:(id)sender {
