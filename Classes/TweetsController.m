@@ -89,12 +89,7 @@
 #pragma mark Loading Tweets
 
 - (NSURL *)connectionURL {
-	//return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
-	// -------------------------------------------
-	// Use local data
-	// -------------------------------------------
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"search" ofType:@"json"];
-	return [NSURL fileURLWithPath:filePath];
+	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
 }
 
 - (IBAction)loadTweets:(id)sender {
@@ -120,19 +115,6 @@
 	}
 }
 
-// Displays the tweets or shows an error alert
-- (void)loadedTweets:(id)result {
-	self.isLoading = NO;
-	if (![result isKindOfClass:[NSError class]]) {
-		self.tweets = result;
-		[self.tableView reloadData];
-	} else {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:[(NSError *)result localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	}
-}
-
 // Converts the JSON response to Tweet objects
 - (id)tweetsFromJSONData:(NSData *)data {
 	NSError *parseError = nil;
@@ -144,6 +126,19 @@
 		[tweet release];
     }
 	return parseError ? (id)parseError : (id)tweetsArray;
+}
+
+// Displays the tweets or shows an error alert
+- (void)loadedTweets:(id)result {
+	self.isLoading = NO;
+	if (![result isKindOfClass:[NSError class]]) {
+		self.tweets = result;
+		[self.tableView reloadData];
+	} else {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:[(NSError *)result localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
 }
 
 
@@ -172,10 +167,6 @@
 
 #pragma mark 1. Approach: Synchronous approach
 
-// This methods loads tweets in a synchronous manner.
-// Too bad: Synchronous loading blocks the UI... this approach fails on app
-// launch, because all we see is a black screen until the tweets are loaded
-// and lazy loading the avatars leads to laggy table view scrolling.
 - (void)parseTweetsSynchronously {
 	NSData *data = [NSData dataWithContentsOfURL:self.connectionURL];
     id result = [self tweetsFromJSONData:data];
@@ -206,9 +197,6 @@
 
 #pragma mark 2. Approach: Callback approach
 
-// Here we are using the NSURLConnection delegate methods
-// This approach does not block the UI on app launch and reload, but is not
-// suitable either, because lazy loading the avatars still does not work.
 - (void)parseTweetsWithCallback {
 	NSURLRequest *request = [NSURLRequest requestWithURL:self.connectionURL];
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -260,12 +248,8 @@
 
 
 
-#pragma mark 3. Approach: Background thread 
+#pragma mark 3. Approach: Background thread
 
-// Using a background thread reduces the amount of code we have to write,
-// because we do not have to implement the callback methods.
-// Important: You need to define an autorelease pool for the spawned thread
-// and be sure to perform the result handler back on the main thread!
 - (void)parseTweetsInBackgroundThread {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSData *data = [NSData dataWithContentsOfURL:self.connectionURL];
