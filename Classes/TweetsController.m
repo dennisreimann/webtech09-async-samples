@@ -81,6 +81,11 @@
 
 - (NSURL *)connectionURL {
 	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
+	// -------------------------------------------
+	// Use local data
+	// -------------------------------------------
+	// NSString *filePath = [[NSBundle mainBundle] pathForResource:@"search" ofType:@"json"];
+	// return [NSURL fileURLWithPath:filePath];
 }
 
 - (IBAction)loadTweets:(id)sender {
