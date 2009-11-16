@@ -105,7 +105,7 @@
 #pragma mark Loading Tweets
 
 - (NSURL *)connectionURL {
-	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"];
+	return [NSURL URLWithString:@"http://search.twitter.com/search.json?q=iphone&rpp=100"]; // http://webtech.local/
 }
 
 - (IBAction)loadTweets:(id)sender {
@@ -187,7 +187,7 @@
 
 
 
-#pragma mark 1. Approach: Synchronous approach
+#pragma mark 1. Approach: Synchronous loading
 
 - (void)parseTweetsSynchronously {
 	NSData *data = [NSData dataWithContentsOfURL:self.connectionURL];
@@ -223,7 +223,7 @@
 
 
 
-#pragma mark 2. Approach: Callback approach
+#pragma mark 2. Approach: Callback API
 
 - (void)parseTweetsWithCallback {
 	NSURLRequest *request = [NSURLRequest requestWithURL:self.connectionURL];
@@ -282,7 +282,7 @@
 
 
 
-#pragma mark 3. Approach: Background thread
+#pragma mark 3. Approach: Background Thread
 
 - (void)parseTweetsInBackgroundThread {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];

@@ -64,7 +64,7 @@
 
 
 
-
+#pragma mark 1. Approach: Background Thread
 
 - (void)loadAvatarInBackgroundThread {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -100,7 +100,7 @@
 
 
 
-
+#pragma mark 2. Approach: Operation Queue
 
 - (void)loadAvatarInOperationQueue {
 	LoadAvatarOperation *loadOperation = [[LoadAvatarOperation alloc] initWithTweet:self];
